@@ -6,6 +6,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/*
+테스트코드 :
+메인함수 또는 서버를 실행하지 않아도,
+Junit 을 통해 각각의 함수를 실행시킬수 있다.
+*/
 class CalculatorTest {
     @Test
     @DisplayName("더하기 테스트")
