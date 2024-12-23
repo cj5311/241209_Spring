@@ -1,26 +1,13 @@
 package com.sparta.memo.repository;
 
-import com.sparta.memo.dto.MemoRequestDto;
-import com.sparta.memo.dto.MemoResponseDto;
 import com.sparta.memo.entity.Memo;
-import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
-
-//@Component
+//JpaRepository 를 상속받고 있는 인터페이스
 public interface MemoRepository extends JpaRepository<Memo, Long> {
-
+    //원하는 쿼리를 생성해서 다른 객체에서 사용할 수 있다. 함수명으로 Sql 쿼리를 생성하여 SimpleJpaRepository에서 구현해줌.
+    List<Memo> findAllByOrderByModifiedAtDesc();
+    List<Memo> findAllByUsername(String username);
 }
